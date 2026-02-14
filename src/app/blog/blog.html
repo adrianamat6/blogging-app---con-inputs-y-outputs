@@ -1,0 +1,42 @@
+<h1> Sistema Blogging</h1>
+
+<main class="main-container">
+    <aside class="form">
+        <h2>Formulario</h2>
+        <p>Título</p>
+        <input type="text" placeholder="Introduce título">
+
+        <p>Imagen</p>
+        <input type="text" placeholder="Introduce URL de la imagen">
+        
+        <p>Cuerpo de la noticia</p>
+        <input type="text" placeholder="Introduce la noticia">
+
+        <p>Introduce la fecha</p>
+        <input type="date" placeholder="Fecha">
+
+    </aside>
+
+    <section class="news">
+        <h2>Noticias</h2>
+
+        <div class ="all-news">
+            @for(item of arrayNoticia; track item.title){
+            <div class = "individual-new">
+                <h3>{{item.title}}</h3>
+                <div class="padre-img">
+                    <img [src]="item.image" class="img-style" [alt]="item.title">
+                </div>
+                <p>{{arrayNoticia[0].new}}</p>
+                <p>{{arrayNoticia[0].date}}</p>
+            
+            </div>
+            }
+        </div>
+
+        
+
+
+    </section>
+
+</main>

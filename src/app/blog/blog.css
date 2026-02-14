@@ -151,3 +151,25 @@ textarea {
     color: #888;
     margin-bottom: 0;
 }
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 10px; 
+    }
+
+    .form {
+        flex: auto; 
+        margin-bottom: 20px; 
+    }
+
+    .individual-new {
+        width: 100%; 
+    }
+
+    .padre-img {
+        max-width: 100%; 
+    }
+}

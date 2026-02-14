@@ -9,16 +9,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './blog.css',
 })
 export class Blog {
-  // 1. Variables para conectar con el formulario (ngModels)
+  // Variables para conectar con el formulario (ngModels)
   inputTitle: string = "";
   inputImage: string = "";
   inputTexto: string = "";
   inputDate: string = "";
 
-  nuevaNoticia: INoticia = { "title": '', "image": '', "new": '', "date": '' };
+  // Variable auxiliar para guardar Noticias en el array
+  nuevaNoticia: INoticia = { 
+    "title": '', 
+    "image": '', 
+    "new": '', 
+    "date": '' 
+  };
 
 
-  // 2. Array de noticias
+  // Array inicializado con dos noticias para cumplir el criterio de carga inicial
   arrayNoticia: INoticia[] =[
     {
       title: 'Última hora de la Conferencia de Seguridad de Múnich, en directo | Rubio pide “revitalizar la alianza” con Europa, pero en los términos que decida Trump',
@@ -35,12 +41,15 @@ export class Blog {
   ];
 
   // 3. Función para guardar los datos
-  guardarNoticia(){
-    console.log(this.inputTitle)
-    console.log(this.inputImage)
-    console.log(this.inputTexto)
-    console.log(this.inputDate)
+  guardarNoticia(event: Event){
 
+    // Comprobamos que los campos no vengan vacios
+    if(this.inputTitle ===''|| this.inputImage === "" || this.inputTexto === "" || this.inputDate === ""){
+      alert("Por favor, rellena todos los campos obligatorios.");
+      return;
+    }
+
+     // Asignamos los valores de los inputs a la estructura de la interfaz INoticia
     this.nuevaNoticia = {
       "title": this.inputTitle, 
       "image": this.inputImage,
@@ -48,9 +57,15 @@ export class Blog {
       "date": this.inputDate
     }; 
 
+    // Hacemos push al array
     this.arrayNoticia.push(this.nuevaNoticia)
 
-    console.log(this.arrayNoticia)
+    
+    // Reseteamos las variables para limpiar el formulario y dejarlo listo para la siguiente noticia
+    this.inputTitle = "";
+    this.inputImage = "";
+    this.inputTexto = "";
+    this.inputDate = "";
 
   }; 
 

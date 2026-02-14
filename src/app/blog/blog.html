@@ -4,16 +4,18 @@
     <section class="form">
         <h2>Formulario</h2>
         <p>Título</p>
-        <input type="text" placeholder="Introduce título">
+        <input type="text" placeholder="Introduce título" [(ngModel)]="inputTitle">
 
         <p>Imagen</p>
-        <input type="text" placeholder="Introduce URL de la imagen">
+        <input type="text" placeholder="Introduce URL de la imagen" [(ngModel)]="inputImage">
         
         <p class="new-body">Cuerpo de la noticia</p>
-        <textarea  type="text" placeholder="Introduce la noticia"></textarea>
+        <textarea  type="text" placeholder="Introduce la noticia" [(ngModel)]="inputTexto"></textarea>
 
         <p>Introduce la fecha</p>
-        <input type="date" placeholder="Fecha">
+        <input type="date" placeholder="Fecha" [(ngModel)]="inputDate">
+
+        <button (click)="guardarNoticia()">Guardar</button>
 
     </section>
 
@@ -27,8 +29,8 @@
                 <div class="padre-img">
                     <img [src]="item.image" class="img-style" [alt]="item.title">
                 </div>
-                <p>{{arrayNoticia[0].new}}</p>
-                <p class="style-date">Fecha: {{arrayNoticia[0].date}}</p>
+                <p>{{item.new}}</p>
+                <p class="style-date">Fecha: {{item.date}}</p>
             
             </div>
             }

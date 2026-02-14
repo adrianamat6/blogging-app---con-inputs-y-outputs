@@ -1,13 +1,24 @@
 import { Component } from '@angular/core';
 import { INoticia } from '../interfaces/inoticia';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-blog',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './blog.html',
   styleUrl: './blog.css',
 })
 export class Blog {
+  // 1. Variables para conectar con el formulario (ngModels)
+  inputTitle: string = "";
+  inputImage: string = "";
+  inputTexto: string = "";
+  inputDate: string = "";
 
+  nuevaNoticia: INoticia = { "title": '', "image": '', "new": '', "date": '' };
+
+
+  // 2. Array de noticias
   arrayNoticia: INoticia[] =[
     {
       title: 'Última hora de la Conferencia de Seguridad de Múnich, en directo | Rubio pide “revitalizar la alianza” con Europa, pero en los términos que decida Trump',
@@ -22,6 +33,28 @@ export class Blog {
       date: '21-03-2021'
     }
   ];
+
+  // 3. Función para guardar los datos
+  guardarNoticia(){
+    console.log(this.inputTitle)
+    console.log(this.inputImage)
+    console.log(this.inputTexto)
+    console.log(this.inputDate)
+
+    this.nuevaNoticia = {
+      "title": this.inputTitle, 
+      "image": this.inputImage,
+      "new": this.inputTexto,
+      "date": this.inputDate
+    }; 
+
+    this.arrayNoticia.push(this.nuevaNoticia)
+
+    console.log(this.arrayNoticia)
+
+  }; 
+
+
 
 
 }

@@ -8,6 +8,8 @@
 
 :host {
     --azul-oscuro: #3a7bd5;
+    --azul-claro:  #8bb1e6; 
+    --gris-azulado:  #2c3e50; 
 }
 
 
@@ -21,8 +23,8 @@ p{
 h1 {
     border-bottom: 2px solid var(--azul-oscuro);
     padding: 12px 16px;
-    background:  #8bb1e6;
-    color: #2c3e50;
+    background:  var(--azul-claro);
+    color:var(--gris-azulado);
     font-size: 1.4rem;
     letter-spacing: 0.5px;
 
@@ -30,14 +32,14 @@ h1 {
 
 h2 {
     text-align: center;
-    color: #2c3e50;
+    color: var(--gris-azulado);
     font-size: 1.2rem;
     margin-bottom: 6px;
 }
 
 h3 {
     text-align: center;
-    color: #3a7bd5;
+    color:var(--azul-oscuro);
     font-size: 1rem;
     font-style: italic;
     margin-bottom: 8px;
@@ -46,7 +48,7 @@ h3 {
 button {
     padding: 10px;
     margin-top: 8px;
-    background-color: #3a7bd5;
+    background-color:var(--azul-oscuro);
     color: white;
     border: none;
     border-radius: 6px;
@@ -61,11 +63,12 @@ button {
     margin-top: 20px;
     gap: 12px;
     padding: 0 10px;
+    align-items: flex-start; 
 }
 
 .form {
     flex: 0 0 30%;
-    border: 1px solid #b0bec5;
+    border: 1px solid var(--azul-claro);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     background-color: #fafcff;
@@ -75,9 +78,9 @@ button {
 input{
     width: 100%; 
     padding: 8px 10px;
-    border: 1px solid #b0bec5;
+    border: 1px solid var(--azul-claro);
     border-radius: 6px;
-    color: #2c3e50;
+    color: var(--gris-azulado);
     background-color: #fff;
     outline: none;
     margin-bottom: 8px;    
@@ -87,10 +90,10 @@ input{
 textarea {
     width: 100%;
     padding: 8px 10px;
-    border: 1px solid #b0bec5;
+    border: 1px solid var(--azul-claro);
     border-radius: 6px;
     font-size: 0.9rem;
-    color: #2c3e50;
+    color: var(--gris-azulado);
     background-color: #fff;
     outline: none;
     margin-bottom: 8px;

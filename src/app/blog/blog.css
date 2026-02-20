@@ -1,3 +1,4 @@
+/* Reset básico */
 *{
     box-sizing: border-box;
     margin: 0px;
@@ -10,14 +11,32 @@
     --azul-oscuro: #3a7bd5;
     --azul-claro:  #8bb1e6; 
     --gris-azulado:  #2c3e50; 
+
+    --azul-oscuro-hover: #2a5cb8; 
+
+     /* Espacio entre rejillas*/
+    --grid-gap: 12px; 
+
+
+    /* --- Tarjetas --- */
+    --card-columns-desktop: 2;   /* 2 columnas del 50% */
+    --card-width-desktop: calc(100% / var(--card-columns-desktop) - var(--grid-gap));
+    --card-width-mobile: 100%;
+    --card-img-max-width: 200px;    
+
+    /* --- Tipografía --- */
+    --font-size-base: 0.95rem;
+    --font-size-h1: 1.4rem;
+    --font-size-h2: 1.2rem;
+    --font-size-h3: 1rem;    
 }
 
-
+/* --- Estilos Generales --- */
 p{
     text-align: justify; 
     color: #444;
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: var(--font-size-base);
 }
 
 h1 {
@@ -25,26 +44,27 @@ h1 {
     padding: 12px 16px;
     background:  var(--azul-claro);
     color:var(--gris-azulado);
-    font-size: 1.4rem;
+    font-size: var(--font-size-h1);
     letter-spacing: 0.5px;
-
 }
 
 h2 {
     text-align: center;
     color: var(--gris-azulado);
-    font-size: 1.2rem;
+    font-size:var(--font-size-h2);
     margin-bottom: 6px;
 }
 
 h3 {
     text-align: center;
     color:var(--azul-oscuro);
-    font-size: 1rem;
+    font-size: var(--font-size-h3);
     font-style: italic;
     margin-bottom: 8px;
 }
 
+
+/* --- Botones e Inputs --- */
 button {
     padding: 10px;
     margin-top: 8px;
@@ -58,12 +78,33 @@ button {
 
 }
 
+button:hover {
+    background-color: var(--azul-oscuro-hover) ;
+}
+
+
+input, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--azul-claro);
+    border-radius: 6px;
+    color: var(--gris-azulado);
+    background-color: #fff;
+    outline: none;
+    margin-bottom: 8px;
+}
+
+
+/* Estilos de contenedor princiapal */ 
 .main-container {
     display: flex;
     margin-top: 20px;
-    gap: 12px;
+    gap: var(--grid-gap);
     padding: 0 10px;
     align-items: flex-start; 
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form {
@@ -75,36 +116,13 @@ button {
     padding: 12px; 
 }
 
-input{
-    width: 100%; 
-    padding: 8px 10px;
-    border: 1px solid var(--azul-claro);
-    border-radius: 6px;
-    color: var(--gris-azulado);
-    background-color: #fff;
-    outline: none;
-    margin-bottom: 8px;    
-
-}
-
-textarea {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid var(--azul-claro);
-    border-radius: 6px;
-    font-size: 0.9rem;
-    color: var(--gris-azulado);
-    background-color: #fff;
-    outline: none;
-    margin-bottom: 8px;
-}
 
 .content {
-    flex: 1;  /* Ocupa el espacio restante */
+    flex: 1;  
     display: flex;
-    flex-wrap: wrap;  /* Las noticias saltan a la siguiente fila si no caben */
+    flex-wrap: wrap;  
     gap: 12px;
-    align-content: flex-start; /* Se apilan desde arriba */
+    align-content: flex-start; 
 }
 
 .news{
@@ -126,13 +144,13 @@ textarea {
 }
 
 .padre-img{
-    max-width: 200px;
+    max-width: var( --card-img-max-width);
     padding: 5px; 
     margin: 0 auto; 
 }
 
 .individual-new {
-    width: calc(50% - 6px); 
+    width: var(--card-width-desktop); 
     border: 1px solid #c8d8e8;
     padding: 12px;
     background: linear-gradient(160deg, #fffdf7, #fdf3e3);
@@ -156,21 +174,35 @@ textarea {
     margin-bottom: 0;
 }
 
-
 /* --- RESPONSIVE --- */
+
+
+@media (max-width: 1024px) {
+    :host {
+        --card-columns-desktop: 1;   /* Al hacerse más pequeño solo dejamos 1 tarjeta */ 
+    }
+
+    .form {
+        flex: 0 0 40%;
+    }
+}
+
 @media (max-width: 768px) {
     .main-container {
         flex-direction: column;
         padding: 10px; 
+        justify-content: center;
+        align-items: center;
     }
 
     .form {
         flex: auto; 
         margin-bottom: 20px; 
+        width: 100%;
     }
 
     .individual-new {
-        width: 100%; 
+        width: var(--card-width-mobile); 
     }
 
     .padre-img {

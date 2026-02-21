@@ -1,0 +1,211 @@
+/* Reset básico */
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+:host {
+    --azul-oscuro: #3a7bd5;
+    --azul-claro:  #8bb1e6; 
+    --gris-azulado:  #2c3e50; 
+
+    --azul-oscuro-hover: #2a5cb8; 
+
+     /* Espacio entre rejillas*/
+    --grid-gap: 12px; 
+
+
+    /* --- Tarjetas --- */
+    --card-columns-desktop: 2;   /* 2 columnas del 50% */
+    --card-width-desktop: calc(100% / var(--card-columns-desktop) - var(--grid-gap));
+    --card-width-mobile: 100%;
+    --card-img-max-width: 200px;    
+
+    /* --- Tipografía --- */
+    --font-size-base: 0.95rem;
+    --font-size-h1: 1.4rem;
+    --font-size-h2: 1.2rem;
+    --font-size-h3: 1rem;    
+}
+
+/* --- Estilos Generales --- */
+p{
+    text-align: justify; 
+    color: #444;
+    line-height: 1.6;
+    font-size: var(--font-size-base);
+}
+
+h1 {
+    border-bottom: 2px solid var(--azul-oscuro);
+    padding: 12px 16px;
+    background:  var(--azul-claro);
+    color:var(--gris-azulado);
+    font-size: var(--font-size-h1);
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    text-align: center;
+    color: var(--gris-azulado);
+    font-size:var(--font-size-h2);
+    margin-bottom: 6px;
+}
+
+h3 {
+    text-align: center;
+    color:var(--azul-oscuro);
+    font-size: var(--font-size-h3);
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+
+/* --- Botones e Inputs --- */
+button {
+    padding: 10px;
+    margin-top: 8px;
+    background-color:var(--azul-oscuro);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+}
+
+button:hover {
+    background-color: var(--azul-oscuro-hover) ;
+}
+
+
+input, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--azul-claro);
+    border-radius: 6px;
+    color: var(--gris-azulado);
+    background-color: #fff;
+    outline: none;
+    margin-bottom: 8px;
+}
+
+
+/* Estilos de contenedor princiapal */ 
+.main-container {
+    display: flex;
+    margin-top: 20px;
+    gap: var(--grid-gap);
+    padding: 0 10px;
+    align-items: flex-start; 
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form {
+    flex: 0 0 30%;
+    border: 1px solid var(--azul-claro);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: #fafcff;
+    padding: 12px; 
+}
+
+
+.content {
+    flex: 1;  
+    display: flex;
+    flex-wrap: wrap;  
+    gap: 12px;
+    align-content: flex-start; 
+}
+
+.news{
+    flex: 1; 
+}
+
+.all-news{
+    display: flex;
+    gap: 5px; 
+    flex-wrap: wrap;
+    
+}
+
+
+.img-style {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.padre-img{
+    max-width: var( --card-img-max-width);
+    padding: 5px; 
+    margin: 0 auto; 
+}
+
+.individual-new {
+    width: var(--card-width-desktop); 
+    border: 1px solid #c8d8e8;
+    padding: 12px;
+    background: linear-gradient(160deg, #fffdf7, #fdf3e3);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.individual-new:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.13);
+}
+
+.style-date{
+    font-size: 10px;
+    position: absolute;
+    bottom: 8px;
+    left: 12px;
+    color: #888;
+    margin-bottom: 0;
+}
+
+/* --- RESPONSIVE --- */
+
+
+@media (max-width: 1024px) {
+    :host {
+        --card-columns-desktop: 1;   /* Al hacerse más pequeño solo dejamos 1 tarjeta */ 
+    }
+
+    .form {
+        flex: 0 0 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 10px; 
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form {
+        flex: auto; 
+        margin-bottom: 20px; 
+        width: 100%;
+    }
+
+    .individual-new {
+        width: var(--card-width-mobile); 
+    }
+
+    .padre-img {
+        max-width: 100%; 
+    }
+}

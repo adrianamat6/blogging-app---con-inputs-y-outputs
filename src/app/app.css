@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+
+h1 {
+    background-color:  blue;
+}
+
+footer{
+    background-color:tomato;
+    color: white;
+    position: fixed;
+    bottom: 0px;
+    width: 100%; 
+}
+
+.secciones{
+    display: flex;
+    margin-top: 20px;
+    gap: var(--grid-gap);
+    padding: 0 10px;
+    align-items: flex-start; 
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form {
+    flex: 0 0 30%;
+    border: 1px solid var(--azul-claro);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: #fafcff;
+    padding: 12px; 
+}

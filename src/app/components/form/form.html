@@ -1,6 +1,3 @@
-<h1> Sistema Blogging</h1>
-
-<main class="main-container">
     <section class="form">
         <h2>Formulario</h2>
         <p>Título</p>
@@ -18,27 +15,3 @@
         <button (click)="guardarNoticia($event)">Guardar</button>
 
     </section>
-
-    <section class="news">
-        <h2>Noticias</h2>
-
-        <div class ="all-news">
-            @for(item of arrayNoticia; track item.title){
-            <div class = "individual-new">
-                <h3>{{item.title}}</h3>
-                <div class="padre-img">
-                    <img [src]="item.image" class="img-style" [alt]="item.title">
-                </div>
-                <p>{{item.new}}</p>
-                <p class="style-date">Fecha: {{item.date}}</p>
-            
-            </div>
-            }
-        </div>
-
-        
-
-
-    </section>
-
-</main>

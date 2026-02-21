@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { INoticia } from '../../interfaces/inoticia';
-import { NOTICIAS } from '../../db/noticias.db';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -17,15 +17,11 @@ export class Form {
   inputTexto: string = "";
   inputDate: string = "";
 
-  // Variable auxiliar para guardar Noticias en el array
-  nuevaNoticia: INoticia = { 
-    "title": '', 
-    "image": '', 
-    "new": '', 
-    "date": '' 
-  };
+  // Output  para subir el dato. 
+  @Output() noticiaEmitida = new EventEmitter <INoticia>();  
+  
 
-  arrayNoticia:INoticia[] = NOTICIAS; 
+  
 
 
   guardarNoticia(event: Event){
@@ -37,7 +33,7 @@ export class Form {
       }
 
       // Asignamos los valores de los inputs a la estructura de la interfaz INoticia
-      this.nuevaNoticia = {
+      const nueva = {
         "title": this.inputTitle, 
         "image": this.inputImage,
         "new": this.inputTexto,
@@ -45,7 +41,7 @@ export class Form {
       }; 
 
       // Hacemos push al array
-      this.arrayNoticia.push(this.nuevaNoticia)
+      this.noticiaEmitida.emit(nueva); 
 
       
       // Reseteamos las variables para limpiar el formulario y dejarlo listo para la siguiente noticia

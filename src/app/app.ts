@@ -14,8 +14,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class App {
 
-  arrayNews: INoticia[] = NOTICIAS; 
+  // 1. El almacén: Lo convertimos a Signal para que Angular detecte cambios
+  arrayNews = signal<INoticia[]>(NOTICIAS); 
   
-
+  // 2. La red que atrapa el dato:
+  recibirNuevaNoticia(noticiaQueLlega: INoticia) {
+    // Así se añade un elemento a un Signal array (hace la misma función que el push)
+    this.arrayNews.update(lista => [...lista, noticiaQueLlega]);
+  }
 
 }

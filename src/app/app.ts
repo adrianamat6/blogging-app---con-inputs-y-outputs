@@ -5,8 +5,7 @@ import { Form } from './components/form/form';
 import { News } from './components/news/news';
 import { FormsModule } from '@angular/forms';
 
-// Este es el padre. Tomará el control y será el unico que importe la base de daatos y la guardará en un signal.
-
+// Este es el padre. Tomará el control y será el unico que importe la base de datos y la guardará en un signal.
 @Component({
   selector: 'app-root',
   imports: [ Form, News ],

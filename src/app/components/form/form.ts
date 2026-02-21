@@ -40,7 +40,7 @@ export class Form {
         "date": this.inputDate
       }; 
 
-      // Hacemos push al array
+      // Emitimos la tarea al Padre
       this.noticiaEmitida.emit(nueva); 
 
       

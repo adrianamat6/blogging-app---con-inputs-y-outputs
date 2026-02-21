@@ -1,0 +1,12 @@
+
+<div class="individual-new">
+    <!-- Usamos el nombre del input y los paréntesis de Signal -->
+    <h3>{{ miNoticiaIndividual()?.title }}</h3>
+    
+    <div class="padre-img">
+        <img [src]="miNoticiaIndividual()?.image" class="img-style" [alt]="miNoticiaIndividual()?.title">
+    </div>
+    
+    <p>{{ miNoticiaIndividual()?.new }}</p>
+    <p class="style-date">Fecha: {{ miNoticiaIndividual()?.date }}</p>
+</div>
